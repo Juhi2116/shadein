@@ -2,6 +2,7 @@ import React, { useState, useRef, useLayoutEffect, useEffect } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import logo from "../logo.svg";
 import gsap from "gsap";
+import SplitType from "split-type"; // Import SplitType
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false); // State for mobile menu toggle
@@ -41,33 +42,41 @@ const Header = () => {
     }
   }, [isOpen]); // Trigger animation when `isOpen` changes
 
+  // Function to handle hover effect on nav items
+  const handleHover = (index) => {
+    const navItem = navItemRefs.current[index];
+    if (!navItem) return;
+
+    // Split the text into characters
+    const splitText = new SplitType(navItem, {
+      types: "chars", // Split into characters
+      tagName: "span", // Wrap each character in a <span>
+    });
+
+    // Animate characters on hover
+    gsap.fromTo(
+      splitText.chars,
+      {
+        y: "100%", // Start characters below
+        opacity: 0, // Start invisible
+      },
+      {
+        y: "0%", // Move characters to original position
+        opacity: 1, // Fade in
+        duration: 0.5, // Animation duration
+        ease: "elastic.out(1, 0.5)", // Elastic easing
+        stagger: 0.1, // Delay between each character
+      }
+    );
+  };
+
   // Set up hover animations for nav items
   useEffect(() => {
-    navItemRefs.current.forEach((item) => {
+    navItemRefs.current.forEach((item, index) => {
       if (!item) return;
 
-      // Create hover animation
-      item.addEventListener("mouseenter", () => {
-        gsap.fromTo(
-          item,
-          { y: 0, color: "white" },
-          {
-            y: [0, -10, 0], // Bounce up and back down
-            color: "#FB923C", // orange-400
-            duration: 0.5,
-            ease: "back.out(1.7)", // Nice bouncy effect
-          }
-        );
-      });
-
-      // Reset on mouse leave
-      item.addEventListener("mouseleave", () => {
-        gsap.to(item, {
-          color: "white",
-          duration: 0.3,
-          ease: "power1.out",
-        });
-      });
+      // Add hover event listeners
+      item.addEventListener("mouseenter", () => handleHover(index));
     });
   }, []);
 
