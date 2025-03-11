@@ -1,27 +1,37 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
+import SplitType from "split-type";
 import Header from "./Header"; // Import Header
 
 export default function Hero() {
-  const buttonRef = useRef(null);
-  const buttonRef2 = useRef(null);
+  const buttonRef = useRef(null); // Ref for the button
   const gradientRef = useRef(null);
   const h1Ref = useRef(null); // Ref for h1
   const pRef = useRef(null); // Ref for p
   const formContainerRef = useRef(null); // Ref for the form container div
 
+  // Function to handle hover effect on the button
   const handleHover = () => {
-    gsap.to(buttonRef.current, {
-      y: "-100%",
-      opacity: 0,
-      duration: 0.5,
-      ease: "power2.out",
+    // Split the button text into characters
+    const splitText = new SplitType(buttonRef.current, {
+      types: "chars", // Split into characters
+      tagName: "span", // Wrap each character in a <span>
     });
 
+    // Animate characters on hover
     gsap.fromTo(
-      buttonRef2.current,
-      { y: "100%", opacity: 0 },
-      { y: "0%", opacity: 1, duration: 0.5, ease: "power2.out" }
+      splitText.chars,
+      {
+        y: "100%", // Start characters below
+        opacity: 0, // Start invisible
+      },
+      {
+        y: "0%", // Move characters to original position
+        opacity: 1, // Fade in
+        duration: 0.5, // Animation duration
+        ease: "elastic.out(1, 0.5)", // Elastic easing
+        stagger: 0.1, // Delay between each character
+      }
     );
   };
 
@@ -132,18 +142,11 @@ export default function Hero() {
             className="w-full md:flex-1 h-14 px-4 bg-black border-2 border-gray-500 text-white rounded-full outline-none focus:ring-2 focus:ring-yellow-400 text-center md:text-left"
           />
           <button
+            ref={buttonRef} // Ref for the button
             className="w-full md:w-auto h-14 px-6 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition font-bold text-base mt-3 md:mt-0 relative overflow-hidden"
-            onMouseEnter={handleHover}
+            onMouseEnter={handleHover} // Trigger hover animation
           >
-            <span ref={buttonRef} className="block transform translate-y-0 opacity-100">
-              ATTRACT
-            </span>
-            <span
-              ref={buttonRef2}
-              className="block transform translate-y-full opacity-0 absolute top-0 left-0 w-full h-full flex items-center justify-center"
-            >
-              ATTRACT
-            </span>
+            ATTRACT
           </button>
         </div>
       </div>
