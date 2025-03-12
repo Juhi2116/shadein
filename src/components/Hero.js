@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import SplitType from "split-type";
-import Header from "./Header"; // Import Header
 
 export default function Hero() {
   const buttonRef = useRef(null); // Ref for the button
@@ -94,7 +93,7 @@ export default function Hero() {
       }}
     >
       {/* 🟢 Add Header Inside Hero */}
-      <Header />
+
 
       {/* Gradient overlay */}
       <div
@@ -107,7 +106,16 @@ export default function Hero() {
           `,
           zIndex: 1,
         }}
-      ></div>
+      >
+ <p
+         
+         className="text-xl bg-red-500 text-gray-400 mt-4 text-center md:text-left"
+       >
+        Option-2 for hero section- working on gradient of "NewLeads"
+     -section is only for testing purpose
+       </p>
+
+      </div>
 
       {/* Content */}
       <div className="text-white relative z-10 px-6 md:px-0 max-w-4xl mx-auto mt-16">

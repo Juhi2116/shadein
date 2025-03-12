@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import SplitType from "split-type";
+import Header from "./Header";
 
 
 export default function Hero() {
@@ -131,7 +132,7 @@ export default function Hero() {
     
       {/* 🟢 Add Header Inside Hero */}
 
-     
+     <Header/>
       {/* Gradient overlay */}
       <div
         ref={gradientRef}
@@ -143,13 +144,7 @@ export default function Hero() {
           `,
           zIndex: 1,
         }}
-      >  <p
-         
-      className="text-xl bg-red-500 text-gray-400 mt-4 text-center md:text-left"
-    >
-     Option-2 for hero section- working on gradient of "NewLeads"
-  -section is only for testing purpose
-    </p></div>
+      > </div>
       
 
       {/* Content */}

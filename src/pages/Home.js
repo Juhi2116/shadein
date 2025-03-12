@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <div>
       <Header />
-
-      <Hero/>
       <HeroSection/>
+      <Hero/>
+     
     <TrustedCompanies/>
     </div>
   );
