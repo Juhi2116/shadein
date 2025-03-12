@@ -129,41 +129,40 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu Button with Animation */}
-     {/* Mobile Menu Button with Animation */}
-<button
-  className="md:hidden w-8 h-8 flex items-center justify-center focus:outline-none"
-  onClick={toggleMenu}
-  aria-label={isOpen ? "Close menu" : "Open menu"}
->
-  <div className="w-6 h-6 relative flex justify-center items-center">
-    {/* Top bar */}
-    <span
-      className={`absolute h-0.5 w-5 bg-white transform transition-all duration-300 ease-in-out ${
-        isOpen ? "rotate-45" : "translate-y-[-6px]"
-      }`}
-    ></span>
+      <button
+        onClick={toggleMenu}
+        className="relative w-10 h-10 focus:outline-none bg-transparent lg:hidden"
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+      >
+        <div className="absolute inset-0 flex items-center justify-center">
+          {/* Hamburger Icon */}
+          <div
+            className={`absolute transform transition-all duration-300 ${
+              isOpen ? "opacity-0 scale-0 hidden" : "opacity-100 scale-100"
+            }`}
+          >
+            <div className="w-6 h-0.5 bg-white mb-1.5"></div>
+            <div className="w-6 h-0.5 bg-white mb-1.5"></div>
+            <div className="w-6 h-0.5 bg-white"></div>
+          </div>
 
-    {/* Middle bar */}
-    <span
-      className={`absolute h-0.5 w-5 bg-white transform transition-all duration-200 ease-in-out ${
-        isOpen ? "opacity-0 scale-x-0" : "opacity-100"
-      }`}
-    ></span>
-
-    {/* Bottom bar */}
-    <span
-      className={`absolute h-0.5 w-5 bg-white transform transition-all duration-300 ease-in-out ${
-        isOpen ? "-rotate-45" : "translate-y-[6px]"
-      }`}
-    ></span>
-  </div>
-</button>
+          {/* X Icon */}
+          {/* <div
+            className={`absolute transform  transition-all duration-300 ${
+              isOpen ? "opacity-100 scale-100" : "opacity-0 scale-0"
+            }`}
+          >
+            <div className="w-6 h-0.5 bg-white transform rotate-45 translate-y-0.5"></div>
+            <div className="w-6 h-0.5 bg-white transform -rotate-45"></div>
+          </div> */}
+        </div> 
+      </button>
 
       {/* Mobile Menu (Dropdown) */}
       {isOpen && (
         <div
           ref={mobileMenuRef}
-          className="absolute top-16 left-0 w-full bg-black bg-opacity-90 text-white p-6 flex flex-col items-center space-y-4 md:hidden"
+          className="absolute top-16 left-0 w-full bg-black bg-opacity-90 text-white p-6 flex flex-col items-center space-y-4 lg:hidden"
         >
           <a href="#" className="flex items-center">
             Company <FaChevronDown className="ml-1" />

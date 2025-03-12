@@ -9,6 +9,7 @@ export default function Home() {
       <Header />
 
       <Hero/>
+      <HeroSection/>
     <TrustedCompanies/>
     </div>
   );
