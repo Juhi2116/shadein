@@ -129,34 +129,35 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu Button with Animation */}
-      <button
-        className="md:hidden w-8 h-8 flex items-center justify-center focus:outline-none"
-        onClick={toggleMenu}
-        aria-label={isOpen ? "Close menu" : "Open menu"}
-      >
-        <div className="w-6 h-6 relative flex justify-center items-center">
-          {/* Top bar */}
-          <span
-            className={`absolute h-0.5 w-5 bg-white transform transition-all duration-300 ease-in-out ${
-              isOpen ? "rotate-45" : "translate-y-[-6px]"
-            }`}
-          ></span>
+     {/* Mobile Menu Button with Animation */}
+<button
+  className="md:hidden w-8 h-8 flex items-center justify-center focus:outline-none"
+  onClick={toggleMenu}
+  aria-label={isOpen ? "Close menu" : "Open menu"}
+>
+  <div className="w-6 h-6 relative flex justify-center items-center">
+    {/* Top bar */}
+    <span
+      className={`absolute h-0.5 w-5 bg-white transform transition-all duration-300 ease-in-out ${
+        isOpen ? "rotate-45" : "translate-y-[-6px]"
+      }`}
+    ></span>
 
-          {/* Middle bar */}
-          <span
-            className={`absolute h-0.5 w-5 bg-white transform transition-all duration-200 ease-in-out ${
-              isOpen ? "opacity-0 scale-x-0" : "opacity-100"
-            }`}
-          ></span>
+    {/* Middle bar */}
+    <span
+      className={`absolute h-0.5 w-5 bg-white transform transition-all duration-200 ease-in-out ${
+        isOpen ? "opacity-0 scale-x-0" : "opacity-100"
+      }`}
+    ></span>
 
-          {/* Bottom bar */}
-          <span
-            className={`absolute h-0.5 w-5 bg-white transform transition-all duration-300 ease-in-out ${
-              isOpen ? "-rotate-45" : "translate-y-[6px]"
-            }`}
-          ></span>
-        </div>
-      </button>
+    {/* Bottom bar */}
+    <span
+      className={`absolute h-0.5 w-5 bg-white transform transition-all duration-300 ease-in-out ${
+        isOpen ? "-rotate-45" : "translate-y-[6px]"
+      }`}
+    ></span>
+  </div>
+</button>
 
       {/* Mobile Menu (Dropdown) */}
       {isOpen && (
