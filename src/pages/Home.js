@@ -6,7 +6,7 @@ import TrustedCompanies from "../components/Trusted";
 export default function Home() {
   return (
     <div>
-      <Header />
+  
       <HeroSection/>
       <Hero/>
      
