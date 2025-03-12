@@ -146,19 +146,19 @@ const Header = () => {
             <div className="w-6 h-0.5 bg-white"></div>
           </div>
 
-          {/* X Icon */}
-          {/* <div
+          {/* X Icon */} 
+          <div
             className={`absolute transform  transition-all duration-300 ${
               isOpen ? "opacity-100 scale-100" : "opacity-0 scale-0"
             }`}
           >
             <div className="w-6 h-0.5 bg-white transform rotate-45 translate-y-0.5"></div>
             <div className="w-6 h-0.5 bg-white transform -rotate-45"></div>
-          </div> */}
+          </div>
         </div> 
       </button>
 
-      {/* Mobile Menu (Dropdown) */}
+      {/* {/* Mobile Menu (Dropdown) */}
       {isOpen && (
         <div
           ref={mobileMenuRef}
