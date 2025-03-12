@@ -131,7 +131,7 @@ const Header = () => {
       {/* Mobile Menu Button with Animation */}
       <button
         onClick={toggleMenu}
-        className="relative w-10 h-10 focus:outline-none bg-transparent lg:hidden"
+        className="relative w-10 h-10 focus:outline-none bg-transparent md:hidden"
         aria-label={isOpen ? "Close menu" : "Open menu"}
       >
         <div className="absolute inset-0 flex items-center justify-center">
@@ -162,7 +162,7 @@ const Header = () => {
       {isOpen && (
         <div
           ref={mobileMenuRef}
-          className="absolute top-16 left-0 w-full bg-black bg-opacity-90 text-white p-6 flex flex-col items-center space-y-4 lg:hidden"
+          className="absolute top-16 left-0 w-full bg-black bg-opacity-90 text-white p-6 flex flex-col items-center space-y-4 md:hidden"
         >
           <a href="#" className="flex items-center">
             Company <FaChevronDown className="ml-1" />
